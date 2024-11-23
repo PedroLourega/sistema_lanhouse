@@ -1,0 +1,135 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+
+body{
+    background: #001e4d;
+}
+.app {
+    background: #fff;
+    width: 90%;
+    max-width: 600px;
+    margin: 100px auto;
+    border-radius: 20px;
+    padding: 40px;
+    min-height: calc(100vh - 140px); 
+    max-height: 200px;
+}
+
+.app h1{
+    font-size: 35px;
+    color: #001e4d;
+    font-weight: 600;
+    
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.menu-principal{
+    padding:20px;
+}
+
+.menu-principal h2{
+    font-size: 18px;
+    color:#001e4d;
+    font-weight: 60px;
+    max-height: 300px;
+}
+
+#titulo-menu-secundario{
+    text-align: center;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+}
+
+.btn{
+    background:#fff;
+    color: #222;
+    font-weight: 500;
+    width: 100%;
+    border: 1px solid #222;
+    padding:10px;
+    margin:10px 0;
+    text-align: left;
+    border-radius: 4px;
+    cursor:pointer;
+    transition: all 0.3s;
+}
+
+.btn:hover{
+    background: #222;
+    color: #fff;
+}
+
+.footer-section {
+    padding: 20px 10px;
+    background: #fff;
+    color: #222;
+    text-align: center;
+}
+
+.footer-section .section-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-section .social-link-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-section .social-link-list .social-link {
+    font-size: 20px;
+    color: #222;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section .social-link-list .social-link:hover {
+    color: #00bcd4;
+}
+
+.footer-section .policy-text {
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer-section .policy-text .policy-link {
+    color: #00bcd4;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.footer-section .policy-text .policy-link:hover {
+    text-decoration: underline;
+}
+
+.logo-fadergs{
+    gap: 15px;
+    width: 100%;
+    gap:20px;
+
+}
+
+/*scrollbar styling*/
+::-webkit-scrollbar{
+    background-color: transparent;
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(#714bfc,#545ffc,#0a015a);
+    border-radius: 100px;
+}
