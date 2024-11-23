@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema da Lan House</title>
+</head>
+<body>
+    <h1>Bem-vindo ao Sistema da Lan House</h1>
+    <ul>
+        <li><a href="{{ url_for('cadastrar_usuario') }}">Cadastrar Usuário</a></li>
+        <li><a href="{{ url_for('listar_usuarios') }}">Listar Usuários</a></li>
+        <li><a href="{{ url_for('calcular_valor') }}">Calcular Valor de Sessão</a></li>
+        <li><a href="{{ url_for('registrar_tempo') }}">Registrar Tempo de Uso</a></li>
+    </ul>
+</body>
+</html>
