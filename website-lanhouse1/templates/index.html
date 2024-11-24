@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A3 Fadergs - Lan House</title>
-    <link rel="stylesheet" href="style.css">
+    <title>A3 Fadergs - Menu Principal </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
    
     <div class="app">
-        <h1 class="titulo-menu">Sistema de Lan House<img class="logo-fadergs" src="images/logo-fadergs.png" alt="logo-fadergs"></h1>
+        <h1 class="titulo-menu">Sistema de Lan House</h1>
         
         <div class="menu-principal">
             <h2 id="titulo-menu-secundario">Selecione a opção desejada:</h2>
             <div id="buttons">
-                <button class="btn">Cadastrar Usuários</button>
+                <a href="{{ url_for('cadastro') }}">
+                    <button class="btn">Cadastrar Usuários</button>
+                </a>
                 <button class="btn">Listar os Usuários Cadastrados</button>
                 <button class="btn">Calcular o valor de uma sessão</button>
                 <button class="btn">Registrar tempo de uso</button>
@@ -25,12 +27,13 @@
             
         </div>
     </div>
-
-
+    <br><br><br><br><br><br><br><br>
+    
 <footer class="footer-section">
+    <div>
+        <a target="_blank" href="https://www.fadergs.edu.br/"><img class="logo-fadergs" src="{{ url_for('static', filename='images/logo-fadergs.png') }}" alt="logo-fadergs" alt="logo-fadergs"></a>
+    </div>
     <div class="section-content">
-        <p class="copyright-text">© 2024 Lan House</p>
-
         <p class="policy-text">
             <a href="#" class="policy-link">Privacy policy</a>
             <span class="separator">•</span>
@@ -38,8 +41,7 @@
             <span class="separator">•</span>
             <a href="https://github.com/PedroLourega" class="policy-link">Acesse meu GitHub clicando aqui!</a>
         </p>
-
-        
+        <p class="copyright-text">© 2024 Lan House - By. Pedro Lourega</p>  
     </div>
 </footer>
 
