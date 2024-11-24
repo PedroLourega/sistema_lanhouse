@@ -194,7 +194,7 @@ body{
 }
 
 ::-webkit-scrollbar-thumb{
-    background: linear-gradient(#714bfc,#545ffc,#12058b);
+    background: linear-gradient(#d1c9fc,#6b74e7,#514997);
     border-radius: 100px;
 }
 
