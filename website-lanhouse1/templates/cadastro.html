@@ -12,7 +12,7 @@
         <h1 class="titulo-cadastro">Cadastro de Usuários</h1>
 
         <div class="ficha-cadastro">
-        <form>
+        <form method="POST" action="/cadastro">
             <label class="cadastro-text" for="nome">Nome:</label><br>
             <input class="cadastro-input" type="text" id="nome" name="nome" required><br><br>
 
@@ -24,9 +24,11 @@
 
             <button class="btn2" type="submit">Cadastrar</button><br>
         </form>
+        
         <a href="{{ url_for('home') }}">
             <button class="btn2">Voltar ao menu</button>
         </a>
+
     </div>
     </div>
     <br><br><br><br><br><br><br><br>
@@ -47,6 +49,6 @@
     </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
