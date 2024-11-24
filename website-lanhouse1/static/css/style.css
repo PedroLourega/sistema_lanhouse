@@ -9,6 +9,7 @@
 body{
     background: #001e4d;
 }
+
 .app {
     background: #fff;
     width: 90%;
@@ -42,6 +43,9 @@ body{
 
 #titulo-menu-secundario{
     text-align: center;
+    padding: 4px;
+    font-size: 20;
+
 }
 
 
@@ -59,7 +63,7 @@ body{
     border: 1px solid #222;
     padding:10px;
     margin:10px 0;
-    text-align: left;
+    text-align: center;
     border-radius: 4px;
     cursor:pointer;
     transition: all 0.3s;
@@ -71,6 +75,14 @@ body{
 }
 /**Cadastro**/
 
+.app-usuarios h1 {
+    text-align: center; 
+    font-size: 28px; 
+    margin-bottom: 30px; 
+    color: #333; 
+    font-weight: bold; 
+}
+
 .ficha-cadastro {
     font-size: 16px;
     color: #001e4d;
@@ -78,13 +90,20 @@ body{
     max-height: 200px;
     text-align: center;
     align-items: center;
-    padding: 6px;
+    padding: 4px;
     display: block;
     justify-content: center;
     height: auto;
 }
 
-/* Ajustes no texto do cadastro */
+.titulo-cadastro{
+    padding: 1px;
+    height: 50px;
+    font-size: 30px;
+    align-items: center;
+}
+
+
 .cadastro-text {
     color: #222;
     margin: 0;
@@ -95,12 +114,12 @@ body{
     width: 30%; 
 }
 
-/* Ajustes nos inputs */
+
 .cadastro-input {
     background: #fff;
     color: #222;
     font-weight: 300;
-    width: 60%; 
+    width: 70%; 
     max-width: 400px; 
     border: 1px solid #222;
     padding: 3px;
@@ -109,15 +128,49 @@ body{
     border-radius: 4px;
     display: inline-block; 
 }
-
-/*Mensagem Flash*/
-.flash-message {
-    background-color: #d4edda;
-    color: #155724;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
+#seta {
+    position: absolute;
+    cursor: pointer;
+    position: fixed;
 }
+
+.seta_retorno {
+    width: 32px;  /* Ajuste o tamanho da seta */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+/* Mensagem Flash */
+.flash-message {
+    display: inline-block;
+    background-color: #4CAF50;  
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;  
+    position: fixed;
+    top: 20px;  
+    left: 50%;
+    transform: translateX(-50%);  
+    font-size: 14px;  
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;  
+    z-index: 9999;  
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.flash-message.success {
+    background-color: #28a745;  
+}
+
+.flash-message.error {
+    background-color: #dc3545;  
+}
+
+
+.flash-message.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
 
 /**Botões de cadastro**/
 .btn2 {
@@ -139,6 +192,150 @@ body{
     background: #001e4d;
     color: #fff;
 }
+
+/* Usuários */
+.app-usuarios {
+    background: #fff;
+    width: 90%; 
+    max-width: 1200px; 
+    margin: 100px auto;
+    border-radius: 20px;
+    padding: 40px;
+    min-height: calc(65vh - 90px);
+}
+
+/* Estilo para a tabela de usuários */
+.usuarios-tabela {
+    width: 100%; 
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: auto; 
+}
+
+.usuarios-tabela th,
+.usuarios-tabela td {
+    padding: 16px; 
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px; 
+    color: #333;
+}
+
+/* Cabeçalho da tabela */
+.usuarios-tabela th {
+    background-color: #030703; 
+    color: #fff; 
+    font-weight: bold;
+    text-transform: uppercase; 
+}
+
+/* Linhas alternadas */
+.usuarios-tabela tr:nth-child(even) {
+    background-color: #f2f2f2; 
+}
+
+/* Estilo ao passar o mouse */
+.usuarios-tabela tr:hover {
+    background-color: #ddd; 
+    cursor: pointer;
+}
+
+/* Estilos específicos para a página calcular_sessao.html */
+
+.app-calc {
+    background: #fff;
+    width: 90%;
+    max-width: 600px;
+    margin: 100px auto;
+    border-radius: 20px;
+    padding: 40px;
+    min-height: calc(65vh - 90px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+}
+
+.app-calc .calc-text {
+    text-align: center;
+}
+
+/* Formulário específico */
+.app-calc input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+
+.app-calc button:hover {
+    background-color: #001e4d;
+}
+
+/* Estilo para o conteúdo de resultado */
+.app-calc .resultado-text {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Borda com sombra */
+    text-align: center; /* Centraliza o texto dentro do resultado */
+}
+
+.app-calc .result-tittle {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.app-calc .resultado-text p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.app-calc .btn-voltar {
+    display: inline-block;
+    margin-top: 15px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.app-calc .btn-voltar:hover {
+    background-color: #218838;
+}
+
+/* Responsividade: Ajuste para telas menores */
+@media (max-width: 600px) {
+    .app-calc {
+        padding: 20px;
+        width: 95%;
+    }
+
+    .app-calc .resultado-text {
+        padding: 15px;
+    }
+
+    .app-calc .result-tittle {
+        font-size: 20px;
+    }
+}
+
+
 
 /**Footer**/
 .footer-section {

@@ -13,16 +13,17 @@ def conectar_banco():
     conn = sqlite3.connect(db_path)  # Caminho absoluto do banco de dados
     return conn
 
-# Função para criar as tabelas
 def criar_tabelas():
     conn = conectar_banco()
     cursor = conn.cursor()
-    cursor.execute('''
+    cursor.execute(''' 
         CREATE TABLE IF NOT EXISTS usuarios (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nome TEXT NOT NULL,
             email TEXT NOT NULL,
-            nickname TEXT NOT NULL
+            nickname TEXT NOT NULL,
+            horas INTEGER DEFAULT 0,
+            minutos INTEGER DEFAULT 0
         )
     ''')
     conn.commit()

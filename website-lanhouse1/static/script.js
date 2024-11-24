@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Se a mensagem flash existir, configura o tempo para escondê-la
     if (flashMessage) {
         setTimeout(function() {
-            flashMessage.style.display = 'none';
+            flashMessage.classList.add('hide');  // Adiciona a classe hide para desaparecer
         }, 3000); // 3000ms = 3 segundos
     }
 });
+

@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    
+
     <div class="app">
         <h1 class="titulo-cadastro">Cadastro de Usuários</h1>
 
@@ -28,16 +30,17 @@
         <a href="{{ url_for('home') }}">
             <button class="btn2">Voltar ao menu</button>
         </a>
-
-    {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-        <div class="flash-message {{ category }}">{{ message }}</div>
-    {% endif %}
+        <br><br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
     {% endwith %}
-
     </div>
     </div>
-    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br>
     
 <footer class="footer-section">
     <div>
@@ -57,4 +60,5 @@
 
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
+
 </html>

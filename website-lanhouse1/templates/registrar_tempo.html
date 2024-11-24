@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A3 Fadergs - Menu Principal </title>
+    <title>A3 Fadergs - Registrar Tempo de Uso </title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,24 +12,34 @@
 <body>
    
     <div class="app">
-        <h1 class="titulo-menu">Sistema de Lan House</h1>
+        <h1>Registrar Tempo de Uso</h1>
+        <form method="POST">
+            <label for="usuario_id">Escolha o Usuário:</label>
+            <select name="usuario_id" id="usuario_id">
+                {% for usuario in usuarios %}
+                    <option value="{{ usuario[0] }}">{{ usuario[1] }} ({{ usuario[2] }})</option>
+                {% endfor %}
+            </select>
+            <br><br>
+
+            <label for="horas">Horas:</label>
+            <input type="number" name="horas" id="horas" required>
+            <br><br>
+
+            <label for="minutos">Minutos:</label>
+            <input type="number" name="minutos" id="minutos" required>
+            <br><br>
+
+            <button type="submit" class="btn">Registrar Tempo</button>
+        </form>
         
-        <div class="menu-principal">
-            <h2 id="titulo-menu-secundario">Selecione a opção desejada:</h2>
-            <div id="buttons">
-                <a href="{{ url_for('cadastro') }}">
-                    <button class="btn">Cadastrar Usuários</button>
-                </a>
-                <a href="{{ url_for('listar_usuarios') }}">
-                    <button class="btn">Listar os Usuários Cadastrados</button>
-                </a>
-                <a href="{{ url_for('calcular_sessao') }}">
-                    <button class="btn">Calcular o valor de uma sessão</button>
-                </a>
-                <button class="btn">Registrar tempo de uso</button>
-            </div>
-            
-        </div>
+        {% if sucesso %}
+            <p>{{ sucesso }}</p>
+        {% endif %}
+        <br><br>
+        <a href="{{ url_for('home') }}" class="btn">Voltar ao Menu Principal</a>
+        
+       
     </div>
     <br><br><br><br><br><br><br><br><br>
     
