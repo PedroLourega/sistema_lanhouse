@@ -12,6 +12,26 @@
     <title></title>
 </head>
 <body>
+    <div class="listar-usuarios">
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Entrada</th>
+            <th>Saída</th>
+            <th>Tempo Total</th>
+            <th>Valor Total</th>
+        </tr>
+        {% for sessao in historico %}
+            <tr>
+                <td>{{ sessao[1] }}</td>  <!-- Nome do usuário -->
+                <td>{{ sessao[2] }}</td>  <!-- Entrada -->
+                <td>{{ sessao[3] }}</td>  <!-- Saída -->
+                <td>{{ sessao[4] }}</td>  <!-- Tempo total -->
+                <td>{{ sessao[5] }}</td>  <!-- Valor total -->
+            </tr>
+        {% endfor %}
+    </table>
+</div>
     <br><br><br><br><br><br><br><br>
     
     <footer class="footer-section">

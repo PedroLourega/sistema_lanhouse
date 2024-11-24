@@ -12,7 +12,7 @@
         <h1 class="titulo-cadastro">Cadastro de Usuários</h1>
 
         <div class="ficha-cadastro">
-        <form method="POST" action="/cadastro">
+        <form action="{{ url_for('cadastro') }}" method="POST">
             <label class="cadastro-text" for="nome">Nome:</label><br>
             <input class="cadastro-input" type="text" id="nome" name="nome" required><br><br>
 
@@ -28,6 +28,12 @@
         <a href="{{ url_for('home') }}">
             <button class="btn2">Voltar ao menu</button>
         </a>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="flash-message {{ category }}">{{ message }}</div>
+    {% endif %}
+    {% endwith %}
 
     </div>
     </div>
