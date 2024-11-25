@@ -17,30 +17,36 @@
         <div id="seta"><a href="{{ url_for('home') }}"><img class="seta_retorno" src="{{ url_for('static', filename='images/seta_retorno_new.png') }}" alt="seta_retorno"></a></div>
         <h1 class="titulo-lista-cadastro">Lista de Usuários Cadastrados</h1>
         
-        <!-- Tabela para exibir os usuários -->
-        <table class="usuarios-tabela">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>Nickname</th>
-                    <th>Horas</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-                {% for usuario in usuarios %}
-                <tr>
-                    <td>{{ usuario[0] }}</td>
-                    <td>{{ usuario[1] }}</td>
-                    <td>{{ usuario[2] }}</td>
-                    <td>{{ usuario[3] }}</td>
-                    <td>0</td> 
-                </tr>
+        {% with mensagens = get_flashed_messages(with_categories=true) %}
+        {% if mensagens %}
+            <ul>
+                {% for categoria, mensagem in mensagens %}
+                    <li class="{{ categoria }}">{{ mensagem }}</li>
                 {% endfor %}
-            </tbody>
-        </table>
+            </ul>
+        {% endif %}
+    {% endwith %}
+    
+    <table class="listagem-usuarios-table" border="0">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Nickname</th>
+            <th>Horas</th>
+            <th>Minutos</th>
+        </tr>
+        {% for usuario in usuarios %}
+        <tr>
+            <td>{{ usuario[0] }}</td>
+            <td>{{ usuario[1] }}</td>
+            <td>{{ usuario[2] }}</td>
+            <td>{{ usuario[3] }}</td>
+            <td>{{ usuario[4] }}</td>
+            <td>{{ usuario[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
     </div>
     <br><br><br><br><br><br><br><br><br>
     

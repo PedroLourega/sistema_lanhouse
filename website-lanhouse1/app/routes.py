@@ -85,11 +85,22 @@ def registrar_tempo():
             horas_totais = horas_atual + horas_adicionais + total_minutos // 60
             minutos_totais = total_minutos % 60
 
+            # Calcular o valor com base no tempo registrado
+            valor_horas = horas_totais * 30  # R$30 por hora
+            valor_minutos = minutos_totais * 0.5  # R$0,50 por minuto
+
+            # Aplicar descontos progressivos
+            descontos = [0.07, 0.09, 0.11, 0.13, 0.15]  # Descontos para 1h, 2h, 3h, 4h, 5h+
+            desconto = descontos[min(horas_totais - 1, 4)] if horas_totais > 0 else 0  # Seleciona o desconto adequado
+            valor_bruto = valor_horas + valor_minutos  # Valor sem desconto
+            valor_final = valor_bruto * (1 - desconto)  # Valor com o desconto aplicado
+
+            # Atualizar o banco com o tempo e o valor
             cursor.execute('''
                 UPDATE usuarios 
-                SET horas = ?, minutos = ?
+                SET horas = ?, minutos = ?, valor = ?
                 WHERE id = ?
-            ''', (horas_totais, minutos_totais, usuario_id))
+            ''', (horas_totais, minutos_totais, valor_final, usuario_id))
 
             conn.commit()
             flash('Tempo registrado com sucesso!', 'success')

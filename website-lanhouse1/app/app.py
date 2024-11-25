@@ -24,12 +24,16 @@ def conectar_banco():
 def criar_tabelas():
     conn = conectar_banco()
     cursor = conn.cursor()
+    
+    # Criar a tabela 'usuarios' com os campos horas e minutos como INTEGER
     cursor.execute(''' 
         CREATE TABLE IF NOT EXISTS usuarios (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nome TEXT NOT NULL,
             email TEXT NOT NULL,
-            nickname TEXT NOT NULL
+            nickname TEXT NOT NULL,
+            horas INTEGER DEFAULT 0,
+            minutos INTEGER DEFAULT 0
         )
     ''')
     conn.commit()
@@ -121,6 +125,55 @@ def calcular_sessao():
             flash(f"Erro ao calcular: {e}", 'error')
 
     return render_template('calcular_sessao.html', resultado=resultado)
+
+@app.route('/registrar_tempo', methods=['GET', 'POST'])
+def registrar_tempo():
+    if request.method == 'POST':
+        try:
+            usuario_id = int(request.form['usuario_id'])
+            horas_adicionais = int(request.form['horas'])
+            minutos_adicionais = int(request.form['minutos'])
+
+            # Conectar ao banco e buscar o tempo atual do usuário
+            conn = conectar_banco()
+            cursor = conn.cursor()
+
+            # Obter as horas e minutos do usuário
+            cursor.execute('SELECT horas, minutos FROM usuarios WHERE id = ?', (usuario_id,))
+            usuario = cursor.fetchone()
+
+            if usuario:
+                horas_atual, minutos_atual = usuario
+
+                # Somar horas e minutos adicionais ao tempo atual
+                total_minutos = minutos_atual + minutos_adicionais
+                horas_totais = horas_atual + horas_adicionais + (total_minutos // 60)
+                minutos_totais = total_minutos % 60
+
+                # Atualizar no banco de dados
+                cursor.execute('UPDATE usuarios SET horas = ?, minutos = ? WHERE id = ?',
+                               (horas_totais, minutos_totais, usuario_id))
+                conn.commit()
+                flash('Tempo registrado com sucesso!', 'success')
+            else:
+                flash('Usuário não encontrado.', 'error')
+
+        except Exception as e:
+            flash(f'Erro ao registrar tempo: {e}', 'error')
+        finally:
+            conn.close()
+
+    # Exibir a lista de usuários para selecionar
+    usuarios = listar_usuarios_banco()
+    return render_template('registrar_tempo.html', usuarios=usuarios)
+
+def listar_usuarios_banco():
+    conn = conectar_banco()
+    cursor = conn.cursor()
+    cursor.execute('SELECT id, nome, nickname FROM usuarios')  # Selecionando id, nome e nickname
+    usuarios = cursor.fetchall()
+    conn.close()
+    return usuarios
 
 # Iniciar o servidor
 if __name__ == '__main__':

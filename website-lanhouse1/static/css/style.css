@@ -285,8 +285,8 @@ body{
     border-radius: 10px;
     margin-top: 30px;
     width: 100%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Borda com sombra */
-    text-align: center; /* Centraliza o texto dentro do resultado */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    text-align: center; 
 }
 
 .app-calc .result-tittle {
@@ -335,6 +335,9 @@ body{
     }
 }
 
+.registrar-title{
+    
+}
 
 
 /**Footer**/
