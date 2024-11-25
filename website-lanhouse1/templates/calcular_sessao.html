@@ -46,9 +46,9 @@
     
     <script>
         function formatarHora(input) {
-            let valor = input.value.replace(/\D/g, '');  // Remove tudo que não é número
+            let valor = input.value.replace(/\D/g, '');  
             if (valor.length >= 3) {
-                valor = valor.slice(0, 2) + ':' + valor.slice(2, 4);  // Adiciona o : após 2 caracteres
+                valor = valor.slice(0, 2) + ':' + valor.slice(2, 4);  
             }
             input.value = valor;
         }

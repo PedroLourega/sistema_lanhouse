@@ -10,7 +10,7 @@ if not os.path.exists(db_dir):
 def conectar_banco():
     db_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'db', 'novo_lanhouse.db')
     print("Caminho absoluto do novo banco de dados:", db_path)
-    conn = sqlite3.connect(db_path)  # Caminho absoluto do banco de dados
+    conn = sqlite3.connect(db_path)  
     return conn
 
 def criar_tabelas():

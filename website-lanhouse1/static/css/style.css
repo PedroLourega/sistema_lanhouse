@@ -134,8 +134,8 @@ body{
 }
 
 .seta_retorno {
-    width: 32px;  /* Ajuste o tamanho da seta */
-    height: auto; /* Mantém a proporção da imagem */
+    width: 32px; 
+    height: auto; 
 }
 
 /* Mensagem Flash */
@@ -366,7 +366,14 @@ body{
     }
 }
 
-
+.menu-principal-registro {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center; /* Centraliza os itens verticalmente */
+    height: 100%; /* Faz o menu ocupar toda a altura do container pai */
+    width: 100%; /* Garante que ele ocupe a largura do container pai */
+}
 
 
 /**Footer**/

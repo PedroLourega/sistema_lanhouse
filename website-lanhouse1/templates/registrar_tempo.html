@@ -14,22 +14,22 @@
     <div class="app">
         <h1 class="registrar-title">Registrar Tempo de Uso</h1>
         <form method="POST">
-            <label class="registrar-escolha" for="usuario_id">Escolha o Usuário:</label><br>
+            <div class="menu-principal-registro">
+            <label for="usuario_id">Escolha o Usuário:</label><br>
             <select name="usuario_id" id="usuario_id">
                 {% for usuario in usuarios %}
                     <option value="{{ usuario[0] }}">{{ usuario[1] }} ({{ usuario[2] }})</option>
                 {% endfor %}
             </select>
-            <br><br>
+            <br>
         
-            <label class="registrar-text" id="registro-menu" for="horas">Horas:</label><br>
+            <label for="horas">Horas:</label>
             <input type="number" name="horas" id="horas" required>
-            <br><br>
         
-            <label class="registrar-text" id="registro-menu" for="minutos">Minutos:</label><br>
+            <label  for="minutos">Minutos:</label>
             <input type="number" name="minutos" id="minutos" required>
             <br><br>
-        
+            </div>
             <button type="submit" class="btn">Registrar Tempo</button>
         </form>
 

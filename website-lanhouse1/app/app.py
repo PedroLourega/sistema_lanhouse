@@ -16,7 +16,7 @@ app.secret_key = 'seu_segredo_aqui'
 
 # Função para conectar ao banco de dados
 def conectar_banco():
-    print("Caminho do banco de dados:", DATABASE_PATH)  # Verificando o caminho
+    print("Caminho do banco de dados:", DATABASE_PATH)  
     conn = sqlite3.connect(DATABASE_PATH)
     return conn
 
@@ -98,16 +98,15 @@ def calcular_sessao():
             tempo_total = tempo_saida - tempo_entrada
             
             # Cálculo do valor por hora e por minuto
-            horas = tempo_total // 60  # Calcula o número de horas
-            minutos = tempo_total % 60  # Calcula os minutos restantes
+            horas = tempo_total // 60  
+            minutos = tempo_total % 60 
 
-            valor_horas = horas * 30  # R$30 por hora
-            valor_minutos = minutos * 0.5  # R$0,50 por minuto
+            valor_horas = horas * 30  
+            valor_minutos = minutos * 0.5  
             
             # Aplicando descontos progressivos conforme a quantidade de horas
-            descontos = [0.07, 0.09, 0.11, 0.13, 0.15]  # Descontos progressivos para 1h, 2h, 3h, 4h, 5h+
-            desconto = descontos[min(horas - 1, 4)] if horas > 0 else 0  # Aplica o desconto de acordo com a quantidade de horas
-
+            descontos = [0.07, 0.09, 0.11, 0.13, 0.15]  
+            desconto = descontos[min(horas - 1, 4)] if horas > 0 else 0  
             # Calculando o valor bruto e o valor final com o desconto
             valor_bruto = valor_horas + valor_minutos  # Valor sem desconto
             valor_final = valor_bruto * (1 - desconto)  # Valor com o desconto aplicado
