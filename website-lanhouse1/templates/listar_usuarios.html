@@ -28,7 +28,7 @@
     {% endwith %}
     
     <table class="listagem-usuarios-table" border="0">
-        <tr>
+        <tr class="usuarios-tabela ">
             <th>ID</th>
             <th>Nome</th>
             <th>Email</th>
@@ -37,7 +37,7 @@
             <th>Minutos</th>
         </tr>
         {% for usuario in usuarios %}
-        <tr>
+        <tr class="usuarios-tabela ">
             <td>{{ usuario[0] }}</td>
             <td>{{ usuario[1] }}</td>
             <td>{{ usuario[2] }}</td>

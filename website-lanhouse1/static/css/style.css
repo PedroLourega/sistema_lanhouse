@@ -131,7 +131,6 @@ body{
 #seta {
     position: absolute;
     cursor: pointer;
-    position: fixed;
 }
 
 .seta_retorno {
@@ -210,6 +209,7 @@ body{
     border-collapse: collapse;
     margin-top: 20px;
     table-layout: auto; 
+    text-align: right;
 }
 
 .usuarios-tabela th,
@@ -226,7 +226,8 @@ body{
     background-color: #030703; 
     color: #fff; 
     font-weight: bold;
-    text-transform: uppercase; 
+    text-transform: uppercase;
+    width: 100px;
 }
 
 /* Linhas alternadas */
@@ -238,6 +239,14 @@ body{
 .usuarios-tabela tr:hover {
     background-color: #ddd; 
     cursor: pointer;
+}
+
+.listagem-usuarios-table{
+    width:100%
+}
+
+.listagem-usuarios-table{
+    align-items: right;
 }
 
 /* Estilos específicos para a página calcular_sessao.html */
@@ -319,6 +328,28 @@ body{
     background-color: #218838;
 }
 
+.btn-registro{
+    background: #fff;
+    color: #222;
+    font-weight: 500;
+    width: 40%; 
+    max-width: 400px; 
+    border: 1px solid #222;
+    padding: 8px;
+    margin: 10px 0;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: absolute;
+    right: 750px;
+}
+
+.btn-registro:hover {
+    background: #001e4d;
+    color: #fff;
+}
+
 /* Responsividade: Ajuste para telas menores */
 @media (max-width: 600px) {
     .app-calc {
@@ -335,9 +366,7 @@ body{
     }
 }
 
-.registrar-title{
-    
-}
+
 
 
 /**Footer**/

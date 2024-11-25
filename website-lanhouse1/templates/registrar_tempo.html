@@ -14,7 +14,7 @@
     <div class="app">
         <h1 class="registrar-title">Registrar Tempo de Uso</h1>
         <form method="POST">
-            <label class="registrar-escolha" for="usuario_id">Escolha o Usuário:</label>
+            <label class="registrar-escolha" for="usuario_id">Escolha o Usuário:</label><br>
             <select name="usuario_id" id="usuario_id">
                 {% for usuario in usuarios %}
                     <option value="{{ usuario[0] }}">{{ usuario[1] }} ({{ usuario[2] }})</option>
@@ -22,23 +22,22 @@
             </select>
             <br><br>
         
-            <label class="registrar-text" for="horas">Horas:</label>
+            <label class="registrar-text" id="registro-menu" for="horas">Horas:</label><br>
             <input type="number" name="horas" id="horas" required>
             <br><br>
         
-            <label class="registrar-text" for="minutos">Minutos:</label>
+            <label class="registrar-text" id="registro-menu" for="minutos">Minutos:</label><br>
             <input type="number" name="minutos" id="minutos" required>
             <br><br>
         
             <button type="submit" class="btn">Registrar Tempo</button>
         </form>
-        
+
+
         {% if sucesso %}
             <p>{{ sucesso }}</p>
         {% endif %}
         <br>
-        <a href="{{ url_for('home') }}" class="btn" id="btn-registro">Voltar ao Menu Principal</a>
-       
 
             {% with mensagens = get_flashed_messages(with_categories=true) %}
         {% if mensagens %}
@@ -49,7 +48,7 @@
             </ul>
         {% endif %}
     {% endwith %}
-
+    <a href="/" class="btn-registro">Voltar ao Menu Principal</a>
 
     </div>
     <br><br><br><br><br><br><br><br><br>
