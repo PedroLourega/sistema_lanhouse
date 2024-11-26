@@ -108,9 +108,8 @@ def calcular_sessao():
             descontos = [0.07, 0.09, 0.11, 0.13, 0.15]  
             desconto = descontos[min(horas - 1, 4)] if horas > 0 else 0  
             # Calculando o valor bruto e o valor final com o desconto
-            valor_bruto = valor_horas + valor_minutos  # Valor sem desconto
-            valor_final = valor_bruto * (1 - desconto)  # Valor com o desconto aplicado
-
+            valor_bruto = valor_horas + valor_minutos  
+            valor_final = valor_bruto * (1 - desconto)  
             # Formatando o tempo em horas e minutos
             tempo_formatado = f"{horas}h {minutos}m"
             
@@ -169,7 +168,7 @@ def registrar_tempo():
 def listar_usuarios_banco():
     conn = conectar_banco()
     cursor = conn.cursor()
-    cursor.execute('SELECT id, nome, nickname FROM usuarios')  # Selecionando id, nome e nickname
+    cursor.execute('SELECT id, nome, nickname FROM usuarios')  # Selecionando o id, o nome e nickname
     usuarios = cursor.fetchall()
     conn.close()
     return usuarios
