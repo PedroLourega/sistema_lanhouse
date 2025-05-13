@@ -3,8 +3,9 @@ import os
 from datetime import datetime
 
 db_dir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'db')
-if not os.path.exists(db_dir):
+if not os.path.exists(db_dir): 
     os.makedirs(db_dir)
+    
 
 # Função para conectar ao banco de dados
 def conectar_banco():
